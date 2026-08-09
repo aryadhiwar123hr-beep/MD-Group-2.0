@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Dashboard — MD Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">MD</span>
+      <span>
+        <div class="brand-name">MD GROUP</div>
+        <div class="brand-sub">ADMIN DASHBOARD</div>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="client-portal.html">Client portal</a>
+      <a href="worker-portal.html">Worker portal</a>
+    </div>
+    <div class="nav-cta">
+      <span style="color:var(--slate-300); font-size:13.5px; font-family:var(--font-mono);">Ops manager: A. Khan</span>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="notice-bar">Prototype interface — internal, role-gated in production (staff login required).</div>
+
+<div class="portal-shell">
+  <aside class="portal-side">
+    <div class="side-label">Overview</div>
+    <a href="#" data-panel-link="overview" class="active">Revenue &amp; KPIs</a>
+    <div class="side-label">Operations</div>
+    <a href="#" data-panel-link="requests">Service requests</a>
+    <a href="#" data-panel-link="deployment">Staff deployment</a>
+    <a href="#" data-panel-link="verification">Worker verification</a>
+    <div class="side-label">Finance</div>
+    <a href="#" data-panel-link="billing">Invoicing</a>
+  </aside>
+
+  <main class="portal-main">
+
+    <!-- OVERVIEW -->
+    <section data-panel="overview">
+      <div class="section-head"><h2 style="font-size:24px;">Revenue &amp; KPIs</h2></div>
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Monthly revenue</div><div class="kpi-value">₹18.4L</div><div class="kpi-delta">↑ 9% vs last month</div></div>
+        <div class="kpi-card"><div class="kpi-label">Active contracts</div><div class="kpi-value">64</div><div class="kpi-delta">Across 6 hubs</div></div>
+        <div class="kpi-card"><div class="kpi-label">Deployed staff</div><div class="kpi-value">2,412</div><div class="kpi-delta">96% fill rate</div></div>
+        <div class="kpi-card"><div class="kpi-label">Pending verifications</div><div class="kpi-value" style="color:var(--gold-500);">37</div><div class="kpi-delta" style="color:var(--slate-500);">Avg. 2.1 days</div></div>
+      </div>
+      <div class="card" style="padding:20px;">
+        <div style="font-weight:600; margin-bottom:14px; font-size:15px;">Revenue by service category — this month</div>
+        <table class="table-simple">
+          <tr><th>Category</th><th>Contracts</th><th>Revenue</th><th>Share</th></tr>
+          <tr><td>Security services</td><td>21</td><td>₹6.8L</td><td>37%</td></tr>
+          <tr><td>Manpower supply</td><td>17</td><td>₹4.9L</td><td>27%</td></tr>
+          <tr><td>Housekeeping</td><td>14</td><td>₹3.1L</td><td>17%</td></tr>
+          <tr><td>Facility management</td><td>9</td><td>₹2.4L</td><td>13%</td></tr>
+          <tr><td>Specialized services</td><td>3</td><td>₹1.2L</td><td>6%</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- REQUESTS -->
+    <section data-panel="requests" style="display:none;">
+      <div class="section-head"><h2 style="font-size:24px;">Service requests</h2></div>
+      <div class="card" style="padding:0;">
+        <table class="table-simple">
+          <tr><th>Client</th><th>Category</th><th>Site type</th><th>Submitted</th><th>Status</th><th></th></tr>
+          <tr>
+            <td>Riverside Business Park</td><td>Security + Housekeeping</td><td>Corporate office</td><td>Today, 09:14</td>
+            <td><span class="badge badge-pending"><span class="dot"></span>New</span></td>
+            <td><button class="btn btn-gold btn-sm">Review</button></td>
+          </tr>
+          <tr>
+            <td>Sunrise Public School</td><td>Manpower supply</td><td>School</td><td>Today, 08:02</td>
+            <td><span class="badge badge-review"><span class="dot"></span>In review</span></td>
+            <td><button class="btn btn-ghost-navy btn-sm">Open</button></td>
+          </tr>
+          <tr>
+            <td>Grandview Mall</td><td>Facility management</td><td>Mall</td><td>Yesterday</td>
+            <td><span class="badge badge-active"><span class="dot"></span>Approved</span></td>
+            <td><button class="btn btn-ghost-navy btn-sm">View</button></td>
+          </tr>
+          <tr>
+            <td>Lakeview Residency</td><td>Specialized — Pest control</td><td>Housing society</td><td>2 days ago</td>
+            <td><span class="badge badge-active"><span class="dot"></span>Approved</span></td>
+            <td><button class="btn btn-ghost-navy btn-sm">View</button></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- DEPLOYMENT -->
+    <section data-panel="deployment" style="display:none;">
+      <div class="section-head">
+        <h2 style="font-size:24px;">Staff deployment</h2>
+        <button class="btn btn-gold btn-sm">+ Assign staff to site</button>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="table-simple">
+          <tr><th>Worker</th><th>Role</th><th>Site</th><th>Shift</th><th>Status</th></tr>
+          <tr><td>R. Fernandes</td><td>Security guard</td><td>Riverside Business Park</td><td>Night, 22:00–06:00</td><td><span class="badge badge-active"><span class="dot"></span>On site</span></td></tr>
+          <tr><td>S. Iyer</td><td>Housekeeper</td><td>Riverside Business Park</td><td>Day, 06:00–14:00</td><td><span class="badge badge-active"><span class="dot"></span>On site</span></td></tr>
+          <tr><td>M. Das</td><td>Electrician</td><td>Lakeview Residency</td><td>On-call</td><td><span class="badge badge-pending"><span class="dot"></span>Scheduled</span></td></tr>
+          <tr><td>P. Verma</td><td>Driver</td><td>Grandview Mall</td><td>Day, 08:00–17:00</td><td><span class="badge badge-active"><span class="dot"></span>On site</span></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- VERIFICATION -->
+    <section data-panel="verification" style="display:none;">
+      <div class="section-head"><h2 style="font-size:24px;">Worker verification queue</h2></div>
+      <div class="card" style="padding:0;">
+        <table class="table-simple">
+          <tr><th>Applicant</th><th>Role applied</th><th>ID</th><th>Background check</th><th></th></tr>
+          <tr>
+            <td>R. Fernandes</td><td>Security guard</td>
+            <td><span class="badge badge-active">Verified</span></td>
+            <td><span class="badge badge-pending">Pending</span></td>
+            <td><button class="btn btn-ghost-navy btn-sm">Review</button></td>
+          </tr>
+          <tr>
+            <td>K. Patel</td><td>Housekeeper</td>
+            <td><span class="badge badge-pending">Pending</span></td>
+            <td><span class="badge badge-review">Not started</span></td>
+            <td><button class="btn btn-ghost-navy btn-sm">Review</button></td>
+          </tr>
+          <tr>
+            <td>A. Sharma</td><td>Electrician</td>
+            <td><span class="badge badge-active">Verified</span></td>
+            <td><span class="badge badge-active">Verified</span></td>
+            <td><button class="btn btn-gold btn-sm">Approve</button></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- BILLING -->
+    <section data-panel="billing" style="display:none;">
+      <div class="section-head">
+        <h2 style="font-size:24px;">Invoicing</h2>
+        <button class="btn btn-gold btn-sm">+ Generate invoice</button>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="table-simple">
+          <tr><th>Invoice</th><th>Client</th><th>Amount</th><th>Due</th><th>Status</th></tr>
+          <tr><td>INV-2026-0142</td><td>Riverside Business Park</td><td>₹42,000</td><td>Aug 15, 2026</td><td><span class="badge badge-pending"><span class="dot"></span>Sent</span></td></tr>
+          <tr><td>INV-2026-0141</td><td>Grandview Mall</td><td>₹96,500</td><td>Aug 12, 2026</td><td><span class="badge badge-active"><span class="dot"></span>Paid</span></td></tr>
+          <tr><td>INV-2026-0140</td><td>Sunrise Public School</td><td>₹28,750</td><td>Aug 10, 2026</td><td><span class="badge badge-active"><span class="dot"></span>Paid</span></td></tr>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:14px;">Production build connects this to Stripe (or Razorpay for INR) for automated payment capture and reconciliation.</p>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

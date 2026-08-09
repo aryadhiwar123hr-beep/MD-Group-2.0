@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Client Portal — MD Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">MD</span>
+      <span>
+        <div class="brand-name">MD GROUP</div>
+        <div class="brand-sub">CLIENT PORTAL</div>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="worker-portal.html">Worker portal</a>
+      <a href="admin-dashboard.html">Admin</a>
+    </div>
+    <div class="nav-cta">
+      <span style="color:var(--slate-300); font-size:13.5px; font-family:var(--font-mono);">Riverside Business Park Pvt Ltd</span>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="notice-bar">Prototype interface — form submissions are simulated, no data is sent or stored.</div>
+
+<div class="portal-shell">
+  <aside class="portal-side">
+    <div class="side-label">Overview</div>
+    <a href="#" data-panel-link="dashboard" class="active">Dashboard</a>
+    <div class="side-label">Services</div>
+    <a href="#" data-panel-link="book">Book / request quote</a>
+    <a href="#" data-panel-link="contracts">Active contracts</a>
+    <div class="side-label">Billing</div>
+    <a href="#" data-panel-link="invoices">Invoices &amp; payments</a>
+    <div class="side-label">Support</div>
+    <a href="#" data-panel-link="support">Raise a request</a>
+  </aside>
+
+  <main class="portal-main">
+
+    <!-- DASHBOARD -->
+    <section data-panel="dashboard">
+      <div class="section-head">
+        <h2 style="font-size:24px;">Dashboard</h2>
+        <a href="#" data-panel-link="book" class="btn btn-gold btn-sm">+ Book a service</a>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Active contracts</div><div class="kpi-value">3</div><div class="kpi-delta">2 sites covered</div></div>
+        <div class="kpi-card"><div class="kpi-label">Staff deployed</div><div class="kpi-value">11</div><div class="kpi-delta">Across all sites</div></div>
+        <div class="kpi-card"><div class="kpi-label">Open tickets</div><div class="kpi-value">1</div><div class="kpi-delta" style="color:var(--gold-500);">Awaiting response</div></div>
+        <div class="kpi-card"><div class="kpi-label">Outstanding balance</div><div class="kpi-value">₹42,000</div><div class="kpi-delta" style="color:var(--slate-500);">Due in 6 days</div></div>
+      </div>
+
+      <div class="card" style="padding:20px; margin-bottom:24px;">
+        <div style="font-weight:600; margin-bottom:14px; font-size:15px;">This week's shift coverage</div>
+        <table class="table-simple">
+          <tr><th>Site</th><th>Service</th><th>Staff</th><th>Status</th></tr>
+          <tr><td>Riverside Business Park</td><td>Security guards</td><td>6</td><td><span class="badge badge-active"><span class="dot"></span>On site</span></td></tr>
+          <tr><td>Riverside Business Park</td><td>Housekeeping</td><td>4</td><td><span class="badge badge-active"><span class="dot"></span>On site</span></td></tr>
+          <tr><td>Lakeview Residency</td><td>AC maintenance</td><td>1</td><td><span class="badge badge-pending"><span class="dot"></span>Scheduled tomorrow</span></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- BOOK / QUOTE -->
+    <section data-panel="book" style="display:none;">
+      <div class="section-head">
+        <h2 style="font-size:24px;">Book a service or request a quote</h2>
+      </div>
+
+      <form id="quote-form" class="card" style="padding:28px; max-width:640px;">
+        <div class="field">
+          <label for="site-name">Site name</label>
+          <input id="site-name" type="text" placeholder="e.g. Riverside Business Park" required />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="site-type">Site type</label>
+            <select id="site-type" required>
+              <option value="">Select site type</option>
+              <option>Corporate office</option>
+              <option>Housing society</option>
+              <option>Hospital</option>
+              <option>School</option>
+              <option>Hotel</option>
+              <option>Factory</option>
+              <option>Mall</option>
+              <option>Construction site</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" type="text" placeholder="City / area" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Service categories needed</label>
+          <div class="chip-select" data-chip-group="multi">
+            <span class="chip">Security</span>
+            <span class="chip">Housekeeping</span>
+            <span class="chip">Manpower supply</span>
+            <span class="chip">Facility management</span>
+            <span class="chip">Specialized services</span>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="headcount">Estimated staff needed</label>
+            <input id="headcount" type="number" min="1" placeholder="e.g. 6" />
+          </div>
+          <div class="field">
+            <label for="start-date">Preferred start date</label>
+            <input id="start-date" type="date" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="notes">Additional details</label>
+          <textarea id="notes" rows="3" placeholder="Shift timing, specific requirements, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-block">Submit request →</button>
+        <p class="hint" style="text-align:center; margin-top:12px;">You'll receive a proposal within 24 hours, or instant confirmation for standard services.</p>
+      </form>
+
+      <div id="quote-confirm" class="card" style="display:none; padding:32px; max-width:640px; text-align:center;">
+        <div class="svc-icon" style="margin:0 auto 16px; background:var(--emerald-100); color:var(--emerald-600);">✓</div>
+        <h3 style="font-size:19px;">Request submitted</h3>
+        <p class="lede" style="margin-top:8px;">Our team is reviewing your requirements. You'll get a proposal by email and inside this portal within 24 hours.</p>
+        <a href="#" data-panel-link="dashboard" class="btn btn-ghost-navy" style="margin-top:18px;" onclick="document.querySelector('[data-panel-link=dashboard]').click()">Back to dashboard</a>
+      </div>
+    </section>
+
+    <!-- CONTRACTS -->
+    <section data-panel="contracts" style="display:none;">
+      <div class="section-head"><h2 style="font-size:24px;">Active contracts</h2></div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="card" style="padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <div style="font-weight:600;">Riverside Business Park — Security &amp; Housekeeping</div>
+            <span class="badge badge-active"><span class="dot"></span>ACTIVE</span>
+          </div>
+          <table class="table-simple">
+            <tr><th>Service</th><th>Staff</th><th>Shift</th><th>Since</th></tr>
+            <tr><td>Security guards</td><td>6</td><td>24×7 rotation</td><td>Jan 2026</td></tr>
+            <tr><td>Housekeeping</td><td>4</td><td>06:00–14:00</td><td>Jan 2026</td></tr>
+          </table>
+        </div>
+        <div class="card" style="padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <div style="font-weight:600;">Lakeview Residency — Facility Maintenance</div>
+            <span class="badge badge-active"><span class="dot"></span>ACTIVE</span>
+          </div>
+          <table class="table-simple">
+            <tr><th>Service</th><th>Staff</th><th>Shift</th><th>Since</th></tr>
+            <tr><td>AC maintenance</td><td>1</td><td>On-call</td><td>Mar 2026</td></tr>
+            <tr><td>Plumbing</td><td>1</td><td>On-call</td><td>Mar 2026</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVOICES -->
+    <section data-panel="invoices" style="display:none;">
+      <div class="section-head"><h2 style="font-size:24px;">Invoices &amp; payments</h2></div>
+      <div class="card" style="padding:0; overflow:hidden;">
+        <table class="table-simple">
+          <tr><th>Invoice</th><th>Site</th><th>Amount</th><th>Due</th><th>Status</th><th></th></tr>
+          <tr>
+            <td>INV-2026-0142</td><td>Riverside Business Park</td><td>₹42,000</td><td>Aug 15, 2026</td>
+            <td><span class="badge badge-pending"><span class="dot"></span>Due</span></td>
+            <td><button class="btn btn-gold btn-sm">Pay now</button></td>
+          </tr>
+          <tr>
+            <td>INV-2026-0119</td><td>Lakeview Residency</td><td>₹18,500</td><td>Jul 15, 2026</td>
+            <td><span class="badge badge-active"><span class="dot"></span>Paid</span></td>
+            <td><button class="btn btn-ghost-navy btn-sm">Receipt</button></td>
+          </tr>
+          <tr>
+            <td>INV-2026-0098</td><td>Riverside Business Park</td><td>₹41,200</td><td>Jun 15, 2026</td>
+            <td><span class="badge badge-active"><span class="dot"></span>Paid</span></td>
+            <td><button class="btn btn-ghost-navy btn-sm">Receipt</button></td>
+          </tr>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:14px;">Payments are processed securely — production build integrates Stripe or a regional gateway (Razorpay) at this step.</p>
+    </section>
+
+    <!-- SUPPORT -->
+    <section data-panel="support" style="display:none;">
+      <div class="section-head"><h2 style="font-size:24px;">Raise a request</h2></div>
+      <form class="card" style="padding:28px; max-width:560px;" onsubmit="event.preventDefault(); this.style.display='none'; document.getElementById('support-confirm').style.display='block';">
+        <div class="field">
+          <label for="ticket-site">Site</label>
+          <select id="ticket-site"><option>Riverside Business Park</option><option>Lakeview Residency</option></select>
+        </div>
+        <div class="field">
+          <label for="ticket-type">Request type</label>
+          <select id="ticket-type"><option>Staff replacement</option><option>Additional staffing</option><option>Billing query</option><option>Service issue</option><option>Other</option></select>
+        </div>
+        <div class="field">
+          <label for="ticket-desc">Describe the request</label>
+          <textarea id="ticket-desc" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold btn-block">Submit request</button>
+      </form>
+      <div id="support-confirm" class="card" style="display:none; padding:28px; max-width:560px; text-align:center;">
+        <div class="svc-icon" style="margin:0 auto 14px; background:var(--emerald-100); color:var(--emerald-600);">✓</div>
+        <h3 style="font-size:17px;">Request logged</h3>
+        <p class="lede" style="margin-top:6px;">Our operations team will respond within 4 business hours.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

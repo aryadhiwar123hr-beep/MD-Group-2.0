@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Worker Portal — MD Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">MD</span>
+      <span>
+        <div class="brand-name">MD GROUP</div>
+        <div class="brand-sub">WORKER PORTAL</div>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="client-portal.html">Client portal</a>
+      <a href="admin-dashboard.html">Admin</a>
+    </div>
+    <div class="nav-cta">
+      <span style="color:var(--slate-300); font-size:13.5px; font-family:var(--font-mono);">Applicant: R. Fernandes</span>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="notice-bar">Prototype interface — form submissions are simulated, no data is sent or stored.</div>
+
+<div class="portal-shell">
+  <aside class="portal-side">
+    <div class="side-label">Get started</div>
+    <a href="#" data-panel-link="apply" class="active">Onboarding application</a>
+    <div class="side-label">My work</div>
+    <a href="#" data-panel-link="schedule">Schedule &amp; assignment</a>
+    <a href="#" data-panel-link="earnings">Earnings &amp; payouts</a>
+  </aside>
+
+  <main class="portal-main">
+
+    <!-- ONBOARDING -->
+    <section data-panel="apply">
+      <div class="section-head"><h2 style="font-size:24px;">Onboarding application</h2></div>
+
+      <form id="worker-form" class="card" style="padding:28px; max-width:660px;">
+        <div class="field-row">
+          <div class="field">
+            <label for="full-name">Full name</label>
+            <input id="full-name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" type="tel" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Role you're applying for</label>
+          <div class="chip-select" data-chip-group="single">
+            <span class="chip">Security guard</span>
+            <span class="chip">Housekeeper</span>
+            <span class="chip">Skilled labour</span>
+            <span class="chip">Electrician</span>
+            <span class="chip">Plumber</span>
+            <span class="chip">Driver</span>
+            <span class="chip">Office staff</span>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="experience">Years of experience</label>
+            <input id="experience" type="number" min="0" placeholder="e.g. 3" />
+          </div>
+          <div class="field">
+            <label for="city">Preferred work city</label>
+            <input id="city" type="text" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="id-doc">Government ID document</label>
+          <input id="id-doc" type="file" />
+          <div class="hint">Aadhaar, passport, voter ID, or driving licence — PDF or image.</div>
+        </div>
+
+        <div class="field">
+          <label for="exp-doc">Work experience letter (optional)</label>
+          <input id="exp-doc" type="file" />
+        </div>
+
+        <div class="field">
+          <label for="bg-consent">Background verification consent</label>
+          <select id="bg-consent" required>
+            <option value="">Select</option>
+            <option>I consent to background verification</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-emerald btn-block">Submit application →</button>
+        <p class="hint" style="text-align:center; margin-top:12px;">Applications are typically reviewed within 2–3 business days.</p>
+      </form>
+
+      <div id="worker-confirm" class="card" style="display:none; padding:32px; max-width:660px; text-align:center;">
+        <div class="svc-icon" style="margin:0 auto 16px; background:var(--emerald-100); color:var(--emerald-600);">✓</div>
+        <h3 style="font-size:19px;">Application received</h3>
+        <p class="lede" style="margin-top:8px;">Our recruitment team will verify your documents and reach out about site placement.</p>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section data-panel="schedule" style="display:none;">
+      <div class="section-head"><h2 style="font-size:24px;">Schedule &amp; assignment</h2></div>
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Application status</div><div class="kpi-value" style="font-size:18px;">Under review</div></div>
+        <div class="kpi-card"><div class="kpi-label">Documents verified</div><div class="kpi-value">2/3</div></div>
+        <div class="kpi-card"><div class="kpi-label">Assigned site</div><div class="kpi-value" style="font-size:18px;">Pending</div></div>
+        <div class="kpi-card"><div class="kpi-label">Next step</div><div class="kpi-value" style="font-size:15px;">Background check</div></div>
+      </div>
+      <div class="card" style="padding:20px;">
+        <div style="font-weight:600; margin-bottom:14px; font-size:15px;">Document verification</div>
+        <table class="table-simple">
+          <tr><th>Document</th><th>Status</th></tr>
+          <tr><td>Government ID</td><td><span class="badge badge-active"><span class="dot"></span>Verified</span></td></tr>
+          <tr><td>Work experience letter</td><td><span class="badge badge-active"><span class="dot"></span>Verified</span></td></tr>
+          <tr><td>Background check</td><td><span class="badge badge-pending"><span class="dot"></span>Pending</span></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- EARNINGS -->
+    <section data-panel="earnings" style="display:none;">
+      <div class="section-head"><h2 style="font-size:24px;">Earnings &amp; payouts</h2></div>
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">This month</div><div class="kpi-value">₹0</div><div class="kpi-delta" style="color:var(--slate-500);">No shifts yet</div></div>
+        <div class="kpi-card"><div class="kpi-label">Lifetime earnings</div><div class="kpi-value">₹0</div></div>
+        <div class="kpi-card"><div class="kpi-label">Pending payout</div><div class="kpi-value">₹0</div></div>
+        <div class="kpi-card"><div class="kpi-label">Payout method</div><div class="kpi-value" style="font-size:15px;">Not set up</div></div>
+      </div>
+      <div class="card" style="padding:24px; text-align:center;">
+        <p class="lede">Your earnings dashboard activates once your application is approved and you're assigned to a site.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
